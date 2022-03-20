@@ -129,14 +129,14 @@ public class HelloClient1
         break;
         case 5:
         System.out.println("-----unsubscribe-----");
-        System.out.print("enter your name");
+        System.out.print("Enter your name");
         name1=sc.nextLine();
          name1=sc.nextLine();
          name1=sc.nextLine();
-        int index1=helloImpl.unsubscribe(name1);
+        int unsub=helloImpl.unsubscribe(name1);
         System.out.print("You have unsubscribed");
-
         break;
+
         case 6:
         break out;
 
