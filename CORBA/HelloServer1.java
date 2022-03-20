@@ -4,7 +4,11 @@ import org.omg.CosNaming.NamingContextPackage.*;
 import org.omg.CORBA.*;
 import org.omg.PortableServer.*;
 import org.omg.PortableServer.POA;
+
+import java.sql.Statement;
 import java.util.Properties;
+
+import javax.swing.JOptionPane;
 class HelloImpl extends HelloPOA 
 {
 	private ORB orb;
@@ -19,6 +23,8 @@ class HelloImpl extends HelloPOA
 	{
 		orb = orb_val; 
 	}
+
+	//Función para buscar persona
 	public int search(String name)
 	{
 		for(int j=0;j<aname.length;j++)
@@ -28,6 +34,8 @@ class HelloImpl extends HelloPOA
 		}
 		return 0;	
 	}
+
+	//Función para registrar persona
 	public void register(String name,int age,int wt)
 	{	
 		
@@ -40,6 +48,8 @@ class HelloImpl extends HelloPOA
 		awt[i]=wt;
 		mem[i]=1;
 	}
+
+	//Función para renovar membresía
 	public float renew(float c,int i)
 	{
 		mem[i]=c;
@@ -47,12 +57,14 @@ class HelloImpl extends HelloPOA
 
 
 	}
+
+	//Función paracalcular el bmi
 	public float bmi(int wt,float h)
 	{
 		float bmi=(wt/(h*h));
 		return bmi;
 	}
-
+	
 	public float upgrade(float c,int i)
 	{
 		mem[i]+=c;
@@ -60,8 +72,14 @@ class HelloImpl extends HelloPOA
 
 	}
 
-
-	
+	//Mi función, da de baja a un cliente del gimnasio
+	public void unsubscribe(String name){
+		int i = search(name);
+		aname[i] = null;
+		aage[i] = (Integer) null;
+		awt[i] = (Integer) null;
+		mem[i] = 0;
+	}
 
 	public String sayHello() 
 	{

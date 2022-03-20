@@ -34,7 +34,7 @@ public class HelloClient1
         while(true)
     {
       System.out.println("enter your option\n");
-      System.out.println("1.Register\n2.renew\n3.upgrade membership\n4.bmi\n5.exit");
+      System.out.println("1.Register\n2.renew\n3.upgrade membership\n4.bmi\n5.unsubscribe\n6.exit");
       int choice=sc.nextInt();
       String name1="hi";
       switch(choice)
@@ -128,6 +128,16 @@ public class HelloClient1
         }
         break;
         case 5:
+        System.out.println("-----unsubscribe-----");
+        System.out.print("enter your name");
+        name1=sc.nextLine();
+         name1=sc.nextLine();
+         name1=sc.nextLine();
+        int index1=helloImpl.unsubscribe(name1);
+        System.out.print("You have unsubscribed");
+
+        break;
+        case 6:
         break out;
 
       } 
